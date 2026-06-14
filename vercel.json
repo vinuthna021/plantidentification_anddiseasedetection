@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "name": "plantidentification-anddiseasedetection",
-  "buildCommand": null,
+  "framework": null,
+  "buildCommand": "",
   "outputDirectory": "public",
   "rewrites": [
     {

@@ -1,0 +1,21 @@
+# Exclude ML assets and backend — only deploy static landing page
+.venv/
+.tfds/
+.cache/
+models/
+*_trained_models/
+complete_models.zip
+flask_app/
+train/
+*.ipynb
+*.keras
+*.pb
+*.zip
+__pycache__/
+.git/
+app.py
+predict_pipeline.py
+cure_database.json
+requirements.txt
+render.yaml
+README.me
