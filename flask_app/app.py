@@ -9,6 +9,11 @@ from typing import Any
 
 import numpy as np
 import tensorflow as tf
+
+# Keep CPU/memory usage predictable on small hosts (e.g. Render free tier).
+tf.config.threading.set_intra_op_parallelism_threads(1)
+tf.config.threading.set_inter_op_parallelism_threads(1)
+
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 from flask import Flask, jsonify, render_template, request
 from werkzeug.utils import secure_filename
@@ -652,6 +657,11 @@ def _normalize_cure_plan(cure_plan: dict[str, Any], plant_name: str, disease_lab
 @app.route("/", methods=["GET"])
 def index() -> str:
     return render_template("index.html")
+
+
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok", "mode": ASSETS.get("mode", "unknown")})
 
 
 @app.route("/history", methods=["GET"])

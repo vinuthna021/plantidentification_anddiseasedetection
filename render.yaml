@@ -3,9 +3,13 @@ services:
     name: plant-disease-detection
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120 --workers 1
-    rootDir: flask_app
+    buildCommand: pip install -r requirements-render.txt
+    startCommand: gunicorn --chdir flask_app --bind 0.0.0.0:$PORT --timeout 180 --workers 1 --preload app:app
+    healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: "3.10.14"
+      - key: TF_CPP_MIN_LOG_LEVEL
+        value: "2"
+      - key: OMP_NUM_THREADS
+        value: "1"
