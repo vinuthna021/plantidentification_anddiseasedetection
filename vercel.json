@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "plantidentification-anddiseasedetection",
+  "buildCommand": null,
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/app/:path*",
+      "destination": "https://plant-disease-detection.onrender.com/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ]
+}
