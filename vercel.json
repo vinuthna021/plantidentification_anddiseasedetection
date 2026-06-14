@@ -6,7 +6,7 @@
   "rewrites": [
     {
       "source": "/app/:path*",
-      "destination": "https://plant-disease-detection.onrender.com/:path*"
+      "destination": "https://plant-disease-detection-hy63.onrender.com/:path*"
     }
   ],
   "headers": [
