@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plant Disease Detection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body class="h-full bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors">
+  <nav class="bg-emerald-600 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-seedling text-2xl"></i>
+        <h1 class="text-lg md:text-xl font-semibold" data-i18n="app_title">Plant Disease Detection</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <select id="languageSwitcher" class="text-slate-900 rounded px-2 py-1 text-sm">
+          <option value="en">English</option>
+          <option value="te">Telugu</option>
+          <option value="hi">Hindi</option>
+          <option value="ta">Tamil</option>
+        </select>
+        <button id="themeToggle" class="bg-emerald-700 px-3 py-1 rounded text-sm">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="{{ url_for('history_page') }}" class="bg-emerald-700 px-3 py-1 rounded text-sm" data-i18n="history">History</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto p-4 space-y-6">
+    <section class="card p-4">
+      <h2 class="text-xl font-semibold mb-3" data-i18n="upload_leaf">Upload Leaf Image</h2>
+      <div id="dropZone" class="drop-zone rounded-lg border-2 border-dashed border-emerald-500 p-6 text-center bg-white dark:bg-slate-800">
+        <input id="fileInput" type="file" accept="image/png,image/jpeg" class="hidden" />
+        <i class="fa-solid fa-cloud-arrow-up text-4xl text-emerald-500"></i>
+        <p class="mt-2" data-i18n="drag_drop">Drag & drop image or click to browse</p>
+        <p class="text-sm text-slate-500">JPG/PNG, max 8MB</p>
+      </div>
+      <div class="mt-4 grid md:grid-cols-2 gap-4">
+        <div>
+          <h3 class="font-medium mb-2" data-i18n="original_preview">Original Preview</h3>
+          <img id="previewImage" class="w-full h-64 object-contain rounded border bg-white dark:bg-slate-800" alt="preview" />
+        </div>
+        <div>
+          <h3 class="font-medium mb-2" data-i18n="enhanced_preview">Enhanced Preview</h3>
+          <img id="enhancedPreview" class="w-full h-64 object-contain rounded border bg-white dark:bg-slate-800" alt="enhanced preview" />
+        </div>
+      </div>
+    </section>
+
+    <section class="card p-4">
+      <h2 class="text-xl font-semibold mb-3" data-i18n="enhancement_module">Enhancement Module</h2>
+      <div class="flex gap-2 mb-3">
+        <button id="aiEnhanceTab" class="tab-button active" data-i18n="ai_enhancement">AI Enhancement</button>
+        <button id="manualEnhanceTab" class="tab-button" data-i18n="manual_enhancement">Manual Enhancement</button>
+      </div>
+      <div id="aiEnhancePanel" class="space-y-2">
+        <button id="aiEnhanceBtn" class="btn-primary"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="run_ai_enhance">Run AI Enhance</span></button>
+        <ul id="enhancementSteps" class="text-sm list-disc pl-5 text-slate-600 dark:text-slate-300"></ul>
+      </div>
+      <div id="manualEnhancePanel" class="hidden space-y-3">
+        <div class="grid sm:grid-cols-3 gap-3">
+          <label class="slider-label">Brightness <input id="brightnessSlider" type="range" min="0.5" max="1.8" step="0.1" value="1.0" class="w-full" /></label>
+          <label class="slider-label">Contrast <input id="contrastSlider" type="range" min="0.5" max="1.8" step="0.1" value="1.0" class="w-full" /></label>
+          <label class="slider-label">Sharpness <input id="sharpnessSlider" type="range" min="0" max="2" step="0.1" value="0.5" class="w-full" /></label>
+        </div>
+        <div class="flex gap-2">
+          <button id="applyManualBtn" class="btn-primary" data-i18n="apply_manual">Apply Manual</button>
+          <button id="resetManualBtn" class="btn-secondary" data-i18n="reset">Reset</button>
+        </div>
+        <canvas id="manualCanvas" class="hidden"></canvas>
+      </div>
+    </section>
+
+    <section class="flex flex-wrap gap-3">
+      <button id="analyzeBtn" class="btn-primary text-lg px-6 py-3"><i class="fa-solid fa-magnifying-glass-chart"></i> <span data-i18n="analyze">Analyze</span></button>
+      <button id="offlinePredictBtn" class="btn-secondary"><i class="fa-solid fa-wifi"></i> <span data-i18n="predict_offline">Predict Offline</span></button>
+      <button id="cacheModelBtn" class="btn-secondary"><i class="fa-solid fa-database"></i> <span data-i18n="cache_models">Cache TFJS Models</span></button>
+    </section>
+
+    <section id="resultSection" class="card p-4 hidden">
+      <div id="warningBanner" class="hidden warning-banner mb-4"></div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <p id="diagnosisSummary" class="result-summary mb-2"></p>
+          <h3 class="text-lg font-semibold"><span data-i18n="plant">Plant</span>: <span id="plantName"></span></h3>
+          <p><span data-i18n="disease">Disease</span>: <span id="diseaseName"></span></p>
+          <p class="mt-2"><span data-i18n="severity">Severity</span>: <span id="severityBadge" class="severity-badge"></span></p>
+          <div class="mt-3">
+            <p class="text-sm"><span data-i18n="confidence">Overall Confidence</span>: <span id="confidenceText" class="font-semibold text-base"></span></p>
+            <p class="text-xs text-slate-500 mt-1">Plant Confidence: <span id="plantConfidenceText"></span> | Disease Confidence: <span id="diseaseConfidenceText"></span></p>
+            <div class="confidence-track"><div id="confidenceBar" class="confidence-bar"></div></div>
+          </div>
+          <button id="toggleGradcamBtn" class="btn-secondary mt-3" data-i18n="toggle_gradcam">Toggle Grad-CAM</button>
+        </div>
+        <div>
+          <h4 class="font-medium mb-2" data-i18n="top5">Top 5 Predictions</h4>
+          <ul id="top5List" class="space-y-1 text-sm high-contrast-text"></ul>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-5">
+        <div>
+          <h4 class="font-medium mb-1" data-i18n="original">Original</h4>
+          <img id="originalResultImage" class="rounded border h-52 w-full object-contain bg-white dark:bg-slate-800" alt="original result" />
+        </div>
+        <div>
+          <h4 class="font-medium mb-1" data-i18n="enhanced">Enhanced</h4>
+          <img id="enhancedResultImage" class="rounded border h-52 w-full object-contain bg-white dark:bg-slate-800" alt="enhanced result" />
+        </div>
+        <div>
+          <h4 class="font-medium mb-1">Grad-CAM</h4>
+          <img id="gradcamImage" class="rounded border h-52 w-full object-contain bg-white dark:bg-slate-800 hidden" alt="gradcam" />
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h4 class="text-lg font-semibold mb-2" data-i18n="cure_plan">7-Day Cure Timeline</h4>
+        <div id="cureTabs" class="flex flex-wrap gap-2 mb-3"></div>
+        <div id="cureContent" class="timeline-card"></div>
+        <ol id="timelineList" class="timeline-list mt-3"></ol>
+        <div class="grid md:grid-cols-3 gap-4 mt-4">
+          <div class="timeline-card">
+            <h5 class="font-semibold mb-2">Prevention</h5>
+            <ul id="preventionList" class="list-disc pl-5 text-sm space-y-1"></ul>
+          </div>
+          <div class="timeline-card">
+            <h5 class="font-semibold mb-2">Organic Alternatives</h5>
+            <ul id="organicList" class="list-disc pl-5 text-sm space-y-1"></ul>
+          </div>
+          <div class="timeline-card">
+            <h5 class="font-semibold mb-2">Chemical Options</h5>
+            <ul id="chemicalList" class="list-disc pl-5 text-sm space-y-1"></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h4 class="text-lg font-semibold mb-2" data-i18n="feedback">Feedback</h4>
+        <form id="feedbackForm" class="space-y-2">
+          <select id="rating" class="w-full border rounded p-2 feedback-control">
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Average</option>
+            <option value="2">2 - Poor</option>
+            <option value="1">1 - Bad</option>
+          </select>
+          <textarea id="comments" class="w-full border rounded p-2 feedback-control" rows="3" placeholder="Share your feedback"></textarea>
+          <button type="submit" class="btn-primary">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="loadingOverlay" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
+    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow text-center">
+      <div class="loader mb-3"></div>
+      <p id="loadingMessage">Analyzing image...</p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/translate.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/enhancement.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/offline.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

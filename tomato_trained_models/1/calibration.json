@@ -1,0 +1,31 @@
+{
+  "plant": "tomato",
+  "class_names": [
+    "Tomato___healthy",
+    "Tomato___Spider_mites Two-spotted_spider_mite",
+    "Tomato___Target_Spot",
+    "Tomato___Septoria_leaf_spot",
+    "Tomato___Tomato_mosaic_virus",
+    "Tomato___Leaf_Mold",
+    "Tomato___Bacterial_spot",
+    "Tomato___Late_blight",
+    "Tomato___Early_blight",
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus"
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "test_top1_acc": 0.9179967045783997,
+  "temperature": 1.025712251663208,
+  "val_nll_before": 0.2014097273349762,
+  "val_nll_after": 0.2013128399848938,
+  "test_confidence_stats": {
+    "n": 1817,
+    "acc": 0.9179966978536048,
+    "mean_conf": 0.9267972150410541,
+    "mean_conf_correct": 0.9495306015729332,
+    "p10_conf": 0.7026638746261596,
+    "p90_conf": 0.9999940872192383
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "plant": "pepper",
+  "class_names": [
+    "Pepper,_bell___healthy",
+    "Pepper,_bell___Bacterial_spot"
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "test_top1_acc": 0.9274193644523621,
+  "temperature": 1.175881266593933,
+  "val_nll_before": 0.1340654492378235,
+  "val_nll_after": 0.131928488612175,
+  "test_confidence_stats": {
+    "n": 248,
+    "acc": 0.9274193548387096,
+    "mean_conf": 0.9463738484248039,
+    "mean_conf_correct": 0.9630422136057978,
+    "p10_conf": 0.7608617186546326,
+    "p90_conf": 0.9995117783546448
+  }
+}

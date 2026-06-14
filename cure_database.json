@@ -1,0 +1,194 @@
+{
+  "default": {
+    "overview": "Use clean pruning, balanced nutrition, and preventive fungicide rotation.",
+    "timeline": [
+      {"day": "Day 1", "action": "Isolate infected plants and remove heavily damaged leaves."},
+      {"day": "Day 2", "action": "Spray broad-spectrum bio-fungicide in early morning."},
+      {"day": "Day 3", "action": "Improve airflow and reduce overhead watering."},
+      {"day": "Day 4", "action": "Apply micronutrient foliar feed to reduce stress."},
+      {"day": "Day 5", "action": "Re-check lesions and remove newly infected foliage."},
+      {"day": "Day 6", "action": "Apply second preventive spray with alternate mode of action."},
+      {"day": "Day 7", "action": "Monitor new growth; continue hygiene and weekly scouting."}
+    ]
+  },
+  "Tomato___Bacterial_spot": {
+    "overview": "Bacterial infection favored by warm, wet foliage.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove infected leaves and avoid handling wet plants."},
+      {"day": "Day 2", "action": "Apply copper-based bactericide at label dosage."},
+      {"day": "Day 3", "action": "Switch to drip irrigation; stop overhead watering."},
+      {"day": "Day 4", "action": "Disinfect tools with 1% bleach or alcohol."},
+      {"day": "Day 5", "action": "Scout lower canopy for new spotting."},
+      {"day": "Day 6", "action": "Repeat copper spray if disease pressure remains high."},
+      {"day": "Day 7", "action": "Mulch soil to reduce splash spread and continue monitoring."}
+    ]
+  },
+  "Tomato___Early_blight": {
+    "overview": "Fungal disease with concentric ring lesions on older leaves.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove severely infected lower leaves."},
+      {"day": "Day 2", "action": "Apply chlorothalonil or mancozeb fungicide."},
+      {"day": "Day 3", "action": "Stake plants and prune for airflow."},
+      {"day": "Day 4", "action": "Apply compost tea or bio-control as supportive measure."},
+      {"day": "Day 5", "action": "Inspect for spread near stem base."},
+      {"day": "Day 6", "action": "Rotate fungicide chemistry and re-spray if needed."},
+      {"day": "Day 7", "action": "Maintain soil moisture consistency and continue scouting."}
+    ]
+  },
+  "Tomato___Late_blight": {
+    "overview": "Aggressive oomycete disease; acts fast under cool humid weather.",
+    "timeline": [
+      {"day": "Day 1", "action": "Immediately isolate infected plants and remove major lesions."},
+      {"day": "Day 2", "action": "Apply systemic + contact blight fungicide mix."},
+      {"day": "Day 3", "action": "Destroy severely infected plants away from field."},
+      {"day": "Day 4", "action": "Improve airflow and avoid leaf wetness."},
+      {"day": "Day 5", "action": "Reassess neighboring plants for water-soaked lesions."},
+      {"day": "Day 6", "action": "Repeat spray with alternate chemistry."},
+      {"day": "Day 7", "action": "Continue strict sanitation and daily monitoring."}
+    ]
+  },
+  "Tomato___Leaf_Mold": {
+    "overview": "Fungal leaf mold common in humid protected cultivation.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove infected lower leaves and reduce humidity."},
+      {"day": "Day 2", "action": "Apply suitable fungicide targeting leaf mold."},
+      {"day": "Day 3", "action": "Ventilate greenhouse and increase row spacing airflow."},
+      {"day": "Day 4", "action": "Water at soil level only."},
+      {"day": "Day 5", "action": "Check undersides of leaves for olive growth."},
+      {"day": "Day 6", "action": "Repeat fungicide if symptoms persist."},
+      {"day": "Day 7", "action": "Maintain RH below 85% where possible."}
+    ]
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "overview": "Fungal leaf spot producing many small lesions.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove most infected leaves; bag and discard."},
+      {"day": "Day 2", "action": "Apply protective fungicide spray."},
+      {"day": "Day 3", "action": "Add mulch to reduce soil splash."},
+      {"day": "Day 4", "action": "Avoid working in crop when foliage is wet."},
+      {"day": "Day 5", "action": "Scout lower canopy for fresh spots."},
+      {"day": "Day 6", "action": "Repeat spray in 5-7 day interval if required."},
+      {"day": "Day 7", "action": "Support plant vigor with balanced feeding."}
+    ]
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "overview": "Mite infestation causing stippling and webbing.",
+    "timeline": [
+      {"day": "Day 1", "action": "Wash leaf undersides with clean water jet."},
+      {"day": "Day 2", "action": "Apply neem oil or miticide as per label."},
+      {"day": "Day 3", "action": "Increase ambient humidity where feasible."},
+      {"day": "Day 4", "action": "Release predatory mites in controlled environments."},
+      {"day": "Day 5", "action": "Inspect webbing intensity and hot spots."},
+      {"day": "Day 6", "action": "Second miticide spray with different mode of action."},
+      {"day": "Day 7", "action": "Continue weekly scouting and edge plant checks."}
+    ]
+  },
+  "Tomato___Target_Spot": {
+    "overview": "Fungal disease with circular target-like lesions.",
+    "timeline": [
+      {"day": "Day 1", "action": "Prune infected leaves and improve air movement."},
+      {"day": "Day 2", "action": "Spray broad-spectrum fungicide."},
+      {"day": "Day 3", "action": "Apply mulch and avoid splash irrigation."},
+      {"day": "Day 4", "action": "Check new growth for lesion expansion."},
+      {"day": "Day 5", "action": "Remove fallen debris near root zone."},
+      {"day": "Day 6", "action": "Repeat preventive spray if humidity persists."},
+      {"day": "Day 7", "action": "Sustain sanitation and regular scouting."}
+    ]
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "overview": "Viral disease spread by whiteflies.",
+    "timeline": [
+      {"day": "Day 1", "action": "Rogue heavily infected plants immediately."},
+      {"day": "Day 2", "action": "Install yellow sticky traps for whitefly management."},
+      {"day": "Day 3", "action": "Apply recommended insecticide targeting vectors."},
+      {"day": "Day 4", "action": "Use reflective mulch where possible."},
+      {"day": "Day 5", "action": "Inspect neighboring plants for curling symptoms."},
+      {"day": "Day 6", "action": "Follow-up vector control spray rotation."},
+      {"day": "Day 7", "action": "Maintain weed control around crop border."}
+    ]
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "overview": "Seed and contact-transmitted viral infection.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove infected plants and sanitize tools."},
+      {"day": "Day 2", "action": "Disinfect hands and equipment frequently."},
+      {"day": "Day 3", "action": "Restrict movement from infected to healthy rows."},
+      {"day": "Day 4", "action": "Control chewing insects that aid spread."},
+      {"day": "Day 5", "action": "Monitor mosaic patterns and deformed leaves."},
+      {"day": "Day 6", "action": "Continue strict hygiene protocol."},
+      {"day": "Day 7", "action": "Plan resistant cultivar usage for next cycle."}
+    ]
+  },
+  "Tomato___healthy": {
+    "overview": "Plant appears healthy. Continue preventive care.",
+    "timeline": [
+      {"day": "Day 1", "action": "Maintain regular irrigation schedule."},
+      {"day": "Day 2", "action": "Inspect underside of leaves for pests."},
+      {"day": "Day 3", "action": "Apply balanced nutrition if needed."},
+      {"day": "Day 4", "action": "Remove yellowing old leaves only."},
+      {"day": "Day 5", "action": "Keep field weed-free and clean."},
+      {"day": "Day 6", "action": "Monitor canopy airflow."},
+      {"day": "Day 7", "action": "Repeat weekly preventive scouting."}
+    ]
+  },
+  "Potato___Early_blight": {
+    "overview": "Alternaria infection causing dark concentric lesions.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove infected foliage where practical."},
+      {"day": "Day 2", "action": "Apply protectant fungicide."},
+      {"day": "Day 3", "action": "Ensure uniform irrigation and reduce stress."},
+      {"day": "Day 4", "action": "Inspect field hot spots and low airflow zones."},
+      {"day": "Day 5", "action": "Add potassium-rich feed for resilience."},
+      {"day": "Day 6", "action": "Repeat spray with alternate active ingredient."},
+      {"day": "Day 7", "action": "Continue crop sanitation and monitor spread."}
+    ]
+  },
+  "Potato___Late_blight": {
+    "overview": "Rapidly spreading blight under cool wet conditions.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove and destroy heavily infected plants."},
+      {"day": "Day 2", "action": "Apply anti-oomycete fungicide promptly."},
+      {"day": "Day 3", "action": "Reduce irrigation frequency and avoid wet foliage."},
+      {"day": "Day 4", "action": "Inspect adjacent rows closely."},
+      {"day": "Day 5", "action": "Apply second protective spray if needed."},
+      {"day": "Day 6", "action": "Dispose of infected residues safely."},
+      {"day": "Day 7", "action": "Continue daily field scouting during risk period."}
+    ]
+  },
+  "Potato___healthy": {
+    "overview": "Potato foliage is healthy. Maintain crop hygiene.",
+    "timeline": [
+      {"day": "Day 1", "action": "Irrigate consistently and avoid waterlogging."},
+      {"day": "Day 2", "action": "Scout for aphids and beetles."},
+      {"day": "Day 3", "action": "Apply preventive biocontrol if preferred."},
+      {"day": "Day 4", "action": "Remove volunteer plants around field edges."},
+      {"day": "Day 5", "action": "Check for early lesions after rains."},
+      {"day": "Day 6", "action": "Maintain balanced fertilization."},
+      {"day": "Day 7", "action": "Document weekly health observation."}
+    ]
+  },
+  "Pepper__bell___Bacterial_spot": {
+    "overview": "Bacterial spot causing dark water-soaked lesions.",
+    "timeline": [
+      {"day": "Day 1", "action": "Remove infected leaves and reduce splash contact."},
+      {"day": "Day 2", "action": "Apply copper bactericide mix."},
+      {"day": "Day 3", "action": "Shift to drip irrigation pattern."},
+      {"day": "Day 4", "action": "Sanitize pruning tools between plants."},
+      {"day": "Day 5", "action": "Scout young leaves for fresh spots."},
+      {"day": "Day 6", "action": "Repeat copper spray if weather remains humid."},
+      {"day": "Day 7", "action": "Maintain mulch cover and hygiene."}
+    ]
+  },
+  "Pepper__bell___healthy": {
+    "overview": "Pepper plant appears healthy.",
+    "timeline": [
+      {"day": "Day 1", "action": "Continue irrigation and nutrient schedule."},
+      {"day": "Day 2", "action": "Inspect canopy for minor insect activity."},
+      {"day": "Day 3", "action": "Keep field clean and weed-free."},
+      {"day": "Day 4", "action": "Improve airflow by light pruning if dense."},
+      {"day": "Day 5", "action": "Check leaf undersides for hidden pests."},
+      {"day": "Day 6", "action": "Apply preventive foliar micronutrients."},
+      {"day": "Day 7", "action": "Log plant health and continue monitoring."}
+    ]
+  }
+}

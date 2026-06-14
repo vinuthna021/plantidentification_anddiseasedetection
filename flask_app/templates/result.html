@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen">
+  <main class="max-w-4xl mx-auto p-6">
+    <div class="card p-6">
+      <h1 class="text-2xl font-semibold mb-3">Latest Prediction</h1>
+      <p>This page is kept for direct template compatibility. Use the main page for full interactive workflow.</p>
+      <a href="{{ url_for('index') }}" class="btn-primary mt-4 inline-block">Go to Analyzer</a>
+    </div>
+  </main>
+</body>
+</html>

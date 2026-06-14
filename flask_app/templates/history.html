@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scan History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen">
+  <main class="max-w-6xl mx-auto p-4">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-2xl font-semibold">Scan History</h1>
+      <a href="{{ url_for('index') }}" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    </div>
+    <div class="card p-4 mb-4 flex flex-wrap gap-3 items-center">
+      <input id="historyFilter" class="border rounded p-2 text-slate-900" placeholder="Filter by plant or disease..." />
+      <button id="exportCsvBtn" class="btn-primary">Export CSV</button>
+      <button id="clearHistoryBtn" class="btn-secondary">Clear History</button>
+    </div>
+    <div id="historyGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </main>
+  <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</body>
+</html>

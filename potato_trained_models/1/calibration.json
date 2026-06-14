@@ -1,0 +1,24 @@
+{
+  "plant": "potato",
+  "class_names": [
+    "Potato___Early_blight",
+    "Potato___Late_blight",
+    "Potato___healthy"
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "test_top1_acc": 0.9675925970077515,
+  "temperature": 0.5696748495101929,
+  "val_nll_before": 0.06127537414431572,
+  "val_nll_after": 0.046181757003068924,
+  "test_confidence_stats": {
+    "n": 216,
+    "acc": 0.9675925925925926,
+    "mean_conf": 0.9776822027784807,
+    "mean_conf_correct": 0.9871967625960208,
+    "p10_conf": 0.9579219818115234,
+    "p90_conf": 0.9999996423721313
+  }
+}

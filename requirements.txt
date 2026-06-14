@@ -1,0 +1,9 @@
+flask
+numpy
+opencv-python-headless
+pillow
+streamlit
+tensorflow
+
+# Optional (only needed if you want auto-download via Kaggle API)
+kaggle

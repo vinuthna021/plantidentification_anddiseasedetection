@@ -1,0 +1,20 @@
+# Virtual environment and caches
+.venv/
+venv/
+.cache/
+.tfds/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Archive exceeds GitHub 100MB file limit; models are included separately
+complete_models.zip
