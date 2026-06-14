@@ -6,6 +6,18 @@ Built with **TensorFlow/Keras** CNN models trained on the PlantVillage dataset, 
 
 ---
 
+## Live Demo
+
+| Deployment | Link | Description |
+|------------|------|-------------|
+| **Live App** | [plant-disease-detection-hy63.onrender.com](https://plant-disease-detection-hy63.onrender.com) | Full Flask app — upload images, get diagnoses, cure plans, and Grad-CAM |
+| **Landing Page** | [plantidentification-anddiseasedetec.vercel.app](https://plantidentification-anddiseasedetec.vercel.app) | Project overview and quick access to the live app |
+| **Source Code** | [github.com/vinuthna021/plantidentification_anddiseasedetection](https://github.com/vinuthna021/plantidentification_anddiseasedetection) | GitHub repository |
+
+> **Note:** The Render free tier sleeps after ~15 minutes of inactivity. The first visit after idle may take 30–60 seconds to load.
+
+---
+
 ## Project Description
 
 This system performs **two-stage plant health analysis**:
